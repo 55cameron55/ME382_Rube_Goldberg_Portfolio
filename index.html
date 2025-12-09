@@ -48,8 +48,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-            padding: 0.6rem 0.8rem;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
         }
 
         nav a {
@@ -117,10 +117,35 @@
             background-color: #e0f8ff;
         }
 
+        .arrow-btn {
+            position: fixed;
+            top: 0.4rem;
+            right: 0.4rem;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.92);
+        }
+
     </style>
 </head>
 
 <body>
+
+    <button id="collapseArrow" class="arrow-btn">▲</button>
+    <button id="expandArrow" class="arrow-btn" style="display:none;">▼</button>
 
     <div class="sticky-wrapper">
         <header>
@@ -149,105 +174,46 @@
     <section id="section1">
         <h2 style="text-align: center"><strong>- Phase 1: Presenting and Justifying the Problem and Solution Requirements -</strong></h2>
 
-        <!--
-        Element A: Presentation and justification of the problem (Module 1 and 2)
-            “The problem is clearly and objectively identified and defined with considerable depth, and it is well elaborated with specific detail; the justification of the problem highlights the concerns of many primary stakeholders and is based on comprehensive, timely, and consistently credible sources; it offers consistently objective detail from which multiple measurable design requirements can be determined.”
-
-        Element B: Documentation and analysis of products with similar functions (Module 2)
-            “Documentation of similar existing products that solve the problem and/or related problems is drawn from a wide array of clearly identified and consistently credible sources; the analysis of past and current products—including both strengths and shortcomings—is consistently clear, detailed, and supported by relevant data.”
-
-        Element C: Presentation and justification of solution design requirements (Module 3)
-            “Design requirements are listed and prioritized, and they are consistently clear and detailed; these design requirements presented are consistently objective, measurable, and they would be highly likely to lead to a tangible and viable solution to the problem identified; there is evidence that requirements represent the needs of, and have been validated by, many if not all primary stakeholder groups.”
-        -->
-
         <p style="text-indent: 2rem;">The problem addressed by my section of the Rube Goldberg machine is the conversion of rotational energy from a previous phase flywheel into a stream of water.</p>
 
         <p style="text-indent: 2rem;">Engineering specs were defined to set clear and measurable criteria for the design, ensuring the solution meets the functional requirements and stakeholder needs.</p>
 
         <table>
             <tr>
-                <th><strong>Spec No.</strong></th>
-                <th><strong>Engineering Spec</strong></th>
-                <th><strong>Driving Direction</strong></th>
-                <th><strong>Min/Max/Target</strong></th>
-            </tr>
+                <th><strong>Spec No.</strong></th>  <th><strong>Engineering Spec</strong></th>  <th><strong>Driving Direction</strong></th> <th><strong>Min/Max/Target</strong></th></tr>
 
             <tr>
-                <td>1</td>
-                <td>Number of custom parts</td>
-                <td>Down</td>
-                <td>0, 5, 0</td>
-            </tr>
+                <td>1</td>  <td>Number of custom parts</td> <td>Down</td> <td>0, 5, 0</td></tr>
 
             <tr>
-                <td>2</td>
-                <td>Total number of hours to fabricate</td>
-                <td>Down</td>
-                <td>1, 30, 10</td>
-            </tr>
+                <td>2</td>  <td>Total number of hours to fabricate</td> <td>Down</td> <td>1, 30, 10</td></tr>
 
             <tr>
-                <td>3</td>
-                <td>Percent of rubric items met</td>
-                <td>Up</td>
-                <td>80%, 100%, 100%</td>
-            </tr>
+                <td>3</td>  <td>Percent of rubric items met</td> <td>Up</td> <td>80%, 100%, 100%</td></tr>
 
             <tr>
-                <td>4</td>
-                <td>Input width in inches</td>
-                <td>Up</td>
-                <td>1, 12, 8</td>
-            </tr>
+                <td>4</td>  <td>Input width in inches</td>  <td>Up</td> <td>1, 12, 8</td></tr>
 
             <tr>
-                <td>5</td>
-                <td>Output width in inches</td>
-                <td>Down</td>
-                <td>1, 5, 2</td>
-            </tr>
+                <td>5</td>  <td>Output width in inches</td> <td>Down</td>   <td>1, 5, 2</td></tr>
 
              <tr>
-                <td>6</td>
-                <td>Total Cost of materials in USD</td>
-                <td>Down</td>
-                <td>10, 100, 20</td>
-            </tr>
+                <td>6</td>  <td>Total Cost of materials in USD</td> <td>Down</td>   <td>10, 100, 20</td></tr>
 
             <tr>
-                <td>7</td>
-                <td>Total number of pinch points</td>
-                <td>Down</td>
-                <td>0, 4, 0</td>
-            </tr>
+                <td>7</td>  <td>Total number of pinch points</td>   <td>Down</td>   <td>0, 4, 0</td></tr>
 
             <tr>
-                <td>8</td>
-                <td>Electrical current exposure in Amps</td>
-                <td>Down</td>
-                <td>0, 10, 5</td>
-            </tr>
+                <td>8</td>  <td>Electrical current exposure in Amps</td>    <td>Down</td>   <td>0, 10, 5</td></tr>
 
             <tr>
-                <td>9</td>
-                <td>Number of words in final report (Webpage)</td>
-                <td>Up</td>
-                <td>1,000, 10,000, 2,000</td>
-            </tr>
+                <td>9</td><td>Number of words in final report (Webpage)</td><td>Up</td><td>1,000, 10,000, 2,000</td></tr>
 
             <tr>
-                <td>10</td>
-                <td>Number of pictures/figures in final report (Webpage)</td>
-                <td>Up</td>
-                <td>3, 20, 5</td>
-            </tr>
+                <td>10</td><td>Number of pictures/figures in final report (Webpage)</td><td>Up</td><td>3, 20, 5</td></tr>
 
             <tr>
-                <td>11</td>
-                <td>Number of design iterations documented</td>
-                <td>Up</td>
-                <td>1, 10, 3</td>
-            </tr>
+                <td>11</td><td>Number of design iterations documented</td><td>Up</td><td>1, 10, 3</td></tr>
         </table>
 
         <p style="text-align: center; font-weight: bold; margin-top: 0;">
@@ -281,7 +247,14 @@
                 Figure 1: House of Quality
             </p>
 
-        <!-- Exisiting products-->
+        <p style="text-indent: 2rem;">Exisiting Rube Goldberg mechanisms can be compared and scored against our existing house of quality requirements. The following mechanisms were evaluated:</p>
+
+        <p><strong>Competing Products</strong><br>
+        A) Domino chain<br>
+        B) Ball and ramp<br>
+        C) Pulley system<br></p>
+
+        <p style="text-indent: 2rem;">These competing products (A though C) can be seen in the house of quality figure above. Each mechanism was graded on how it meets the requirements on a scale from 1 to 5. 1 meaning the mechanism does not meet the requirement at all, and 5 meaning the mechanism fully meets the requirement. It can bee seen that these standard products do not fufill our requirements, therefore we can proceed to design our own solution.</p>
 
     </section>
 
@@ -289,13 +262,13 @@
         <h2 style="text-align: center"><strong>- Phase 2: Generating and Analyzing an Original Solution -</strong></h2>
 
         <!--
-        Element D: Design for function (Module 3)
+        Element D: Design for function (Module 3) - functional decomposition diagram
             “The definitions of functions are accurate and use the prescribed taxonomy (or are more specific); the function structure has been iterated and is complete and correct, with all functional flows accurately represented and defined. The function structure includes multiple interior subfunctions, including at least one subfunction that converts an electrical energy input. No components are included anywhere in the function structure, enabling the student to design for function as opposed to being constrained to specific components to carry the function.”
 
-        Element E: Design concept generation, analysis, and selection (Module 4 and 5)
+        Element E: Design concept generation, analysis, and selection (Module 4 and 5) - Design concepts, pugh chart, final choice. initial math. 
             “The process for generating and comparing possible design solutions was comprehensive, iterative, and consistently defensible, making a viable and well-justified design highly likely; the design solution ultimately chosen was well-justified and demonstrated attention to all design requirements; the plan of action has considerable merit and would easily support repetition and testing for effectiveness by others.”
 
-        Element F: Application of STEM principles and practices through analysis (Module 5)
+        Element F: Application of STEM principles and practices through analysis (Module 5) - classmate feedback.
             “The proposed solution is well-substantiated with STEM principles and practices applicable to all or nearly all design requirements and functional claims; there is substantial evidence that the application of those principles and practices by the student has been reviewed by two students in the class and an expert (course instructor, at time of homework assessment) and that those reviews provide confirmation (verification) or detail necessary to inform a corrective response.”
         -->
 
@@ -336,6 +309,24 @@
     <footer>
         <p>Cameron Clarke - ME 382 Introduction to Design - clarcame@oregonstate.edu</p>
     </footer>
+
+    <script>
+        const stickyWrapper = document.querySelector('.sticky-wrapper');
+        const collapseArrow = document.getElementById('collapseArrow');
+        const expandArrow = document.getElementById('expandArrow');
+
+        collapseArrow.addEventListener('click', () => {
+            stickyWrapper.style.display = "none";
+            collapseArrow.style.display = "none";
+            expandArrow.style.display = "flex";
+        });
+
+        expandArrow.addEventListener('click', () => {
+            stickyWrapper.style.display = "block";
+            expandArrow.style.display = "none";
+            collapseArrow.style.display = "flex";
+        });
+    </script>
 
 </body>
 </html>
