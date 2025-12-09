@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clarke - Rube Goldberg Machine Project Portfolio</title>
 
-    <!-- Base Styles -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -25,15 +24,23 @@
         }
 
         header {
-            background: linear-gradient(180deg, #f0f0f0, #d3d3d3);
+            background: linear-gradient(180deg, #f0f0f0, #bcbcbc);
             color: #333;
-            padding: 5px;
             text-align: center;
-            border-bottom: 4px solid #888;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            padding: 0.3rem 0;
+            line-height: 1.1;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color:#474747;
+        }
+
+        header h2 {
+            font-size: 1rem; 
+            margin: 0.1rem 0 0;
+            color:#474747;
         }
 
         nav {
@@ -42,7 +49,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
-            padding: 0.8rem;
+            padding: 0.6rem 0.8rem;
         }
 
         nav a {
@@ -50,22 +57,26 @@
             text-decoration: none;
             font-weight: bold;
             text-align: center;
+            padding: 0.4rem 0.8rem;
+            border: 2px solid #cccccc;
+            border-radius: 20px;
+        }
+
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         section {
-            padding: 2rem 1rem;
+            padding: 0 1rem;
             max-width: 1200px;
             margin: 1.5rem auto;
             background: #fff;
             border-radius: 20px;
             border: 2px solid #cccccc;
             line-height: 1.6;
-            scroll-margin-top: 220px; 
-
-        }
-
-        h2 {
-            margin-top: 0;
+            scroll-margin-top: 180px;
         }
 
         footer {
@@ -78,89 +89,250 @@
 
         .section-image {
             display: block;
-            max-width: 100%;   /* scales image to fit the section */
-            margin: 1.5rem auto;
+            max-width: 80%; 
             border-radius: 8px;
-            border: 3px solid #ccc;
+            border: 2px solid #000000;
+            margin-left: auto;
+            margin-right: auto;
         }
+
+        table {
+            font-family: arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            text-align: center;
+            border: 2px solid #000000;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td, th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #e0f8ff;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Cameron Clarke ME 382 - Introduction to Design</h1>
-        <h2>Rube Goldberg Machine Project Portfolio</h2>
-    </header>
+    <div class="sticky-wrapper">
+        <header>
+            <h1><strong>Cameron Clarke ME 382 - Introduction to Design</strong></h1>
+            <h2>Rube Goldberg Machine Project Portfolio</h2>
+        </header>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#section1">Phase 1</a>
-        <a href="#section2">Phase 2</a>
-        <a href="#section3">Phase 3</a>
-        <a href="#section4">Phase 4</a>
-    </nav>
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#section1">Phase 1 - Problem and Solution Requirements</a>
+            <a href="#section2">Phase 2 - Solution</a>
+            <a href="#section3">Phase 3 - Design, Prototyping, and Simulation</a>
+            <a href="#section4">Phase 4 - Evaluation, Reflection, and Recommendations</a>
+        </nav>
+    </div>
 
-    <!-- Section 1 -->
+    <section id="introduction">
+        <h2 style="text-align: center"><strong>- Project Introduction -</strong></h2>
+
+        <p style="text-indent: 2rem;">This portfolio documents the design process and development of a Rube Goldberg machine, a complex contraption that performs a simple task through a series of intricate steps. The project is structured into four main phases, each addressing specific aspects of the design process, from problem identification to final evaluation and reflection.</p>
+
+        <p style="text-indent: 2rem;">My Rube Goldberg section was designed to complete the task of converting rotational energy (from a previous phase fly wheel) into a stream of water. This Portfolio aims to demonstrate the application of engineering design principles, creativity, and technical skills used throughout the project.</p>
+
+    </section>
+
     <section id="section1">
-        <h2>Phase 1: Presenting and Justifying a Problem and Its Solution Requirements</h2>
+        <h2 style="text-align: center"><strong>- Phase 1: Presenting and Justifying the Problem and Solution Requirements -</strong></h2>
 
-        <p><strong>Element A: Presentation and justification of the problem (M1 and M2)</strong><br>
-        “The problem is clearly and objectively identified and defined with considerable depth, and it is well elaborated with specific detail; the justification of the problem highlights the concerns of many primary stakeholders and is based on comprehensive, timely, and consistently credible sources; it offers consistently objective detail from which multiple measurable design requirements can be determined.”</p>
+        <!--
+        Element A: Presentation and justification of the problem (Module 1 and 2)
+            “The problem is clearly and objectively identified and defined with considerable depth, and it is well elaborated with specific detail; the justification of the problem highlights the concerns of many primary stakeholders and is based on comprehensive, timely, and consistently credible sources; it offers consistently objective detail from which multiple measurable design requirements can be determined.”
 
-        <img src="Portfolio flowchart-1.png" alt="Test picture 1" class="section-image">
+        Element B: Documentation and analysis of products with similar functions (Module 2)
+            “Documentation of similar existing products that solve the problem and/or related problems is drawn from a wide array of clearly identified and consistently credible sources; the analysis of past and current products—including both strengths and shortcomings—is consistently clear, detailed, and supported by relevant data.”
 
-        <p><strong>Element B: Documentation and analysis of products with similar functions (M2)</strong><br>
-        “Documentation of similar existing products that solve the problem and/or related problems is drawn from a wide array of clearly identified and consistently credible sources; the analysis of past and current products—including both strengths and shortcomings—is consistently clear, detailed, and supported by relevant data.”</p>
+        Element C: Presentation and justification of solution design requirements (Module 3)
+            “Design requirements are listed and prioritized, and they are consistently clear and detailed; these design requirements presented are consistently objective, measurable, and they would be highly likely to lead to a tangible and viable solution to the problem identified; there is evidence that requirements represent the needs of, and have been validated by, many if not all primary stakeholder groups.”
+        -->
 
-        <p><strong>Element C: Presentation and justification of solution design requirements (M3)</strong><br>
-        “Design requirements are listed and prioritized, and they are consistently clear and detailed; these design requirements presented are consistently objective, measurable, and they would be highly likely to lead to a tangible and viable solution to the problem identified; there is evidence that requirements represent the needs of, and have been validated by, many if not all primary stakeholder groups.”</p>
+        <p style="text-indent: 2rem;">The problem addressed by my section of the Rube Goldberg machine is the conversion of rotational energy from a previous phase flywheel into a stream of water.</p>
+
+        <p style="text-indent: 2rem;">Engineering specs were defined to set clear and measurable criteria for the design, ensuring the solution meets the functional requirements and stakeholder needs.</p>
+
+        <table>
+            <tr>
+                <th><strong>Spec No.</strong></th>
+                <th><strong>Engineering Spec</strong></th>
+                <th><strong>Driving Direction</strong></th>
+                <th><strong>Min/Max/Target</strong></th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Number of custom parts</td>
+                <td>Down</td>
+                <td>0, 5, 0</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Total number of hours to fabricate</td>
+                <td>Down</td>
+                <td>1, 30, 10</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Percent of rubric items met</td>
+                <td>Up</td>
+                <td>80%, 100%, 100%</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Input width in inches</td>
+                <td>Up</td>
+                <td>1, 12, 8</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Output width in inches</td>
+                <td>Down</td>
+                <td>1, 5, 2</td>
+            </tr>
+
+             <tr>
+                <td>6</td>
+                <td>Total Cost of materials in USD</td>
+                <td>Down</td>
+                <td>10, 100, 20</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>Total number of pinch points</td>
+                <td>Down</td>
+                <td>0, 4, 0</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>Electrical current exposure in Amps</td>
+                <td>Down</td>
+                <td>0, 10, 5</td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>Number of words in final report (Webpage)</td>
+                <td>Up</td>
+                <td>1,000, 10,000, 2,000</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>Number of pictures/figures in final report (Webpage)</td>
+                <td>Up</td>
+                <td>3, 20, 5</td>
+            </tr>
+
+            <tr>
+                <td>11</td>
+                <td>Number of design iterations documented</td>
+                <td>Up</td>
+                <td>1, 10, 3</td>
+            </tr>
+        </table>
+
+        <p style="text-align: center; font-weight: bold; margin-top: 0;">
+            Table 1: Engineering Specifications
+        </p>
+
+        <p style="text-indent: 2rem;">Stakeholders were identified using a three tier system including Primary, Secondary, and Tertiary stakeholders. Primary stakeholders are those who are directly affected by the problem and solution, secondary stakeholders have an indirect interest, and tertiary stakeholders have a broader societal or environmental interest. Each stakeholder group was analyzed to understand their needs, concerns, and potential impact on the project. The following list illistrates the three types of stakeholders with representations from each category and their needs.</p>
+
+        <p><strong>Primary Stakeholders</strong><br>
+        1.  Myself/ My team - Need to design a reliable, easy to fabricate, and functioning product.<br>
+        2.	Instructor - Needs the design and documentation to demonstrate comprehension of learning objectives. <br>
+        3.	Audience / Classmates- Need the assembly to be visually engaging and clearly understandable.  <br></p>
+
+        <p><strong>Secondary Stakeholders</strong><br>
+        1.	Previous group in chain - Need to be able to receive a compatible input. <br>
+        2.	Following group in chain - Need to deliver a consistent compatible output.<br>
+        3.	Material suppliers - Readily available parts that are easy to source and affordable.<br>
+        4.	Safety staff - Need the project to minimize hazards.<br></p>
+
+        <p><strong>Tertiary Stakeholders</strong><br>
+        1.	Future employer - Need the project documentation and design portfolio to showcase technical competence and creativity.<br>
+        2.	Future Rube Goldberg machine designers - Need Inspiration for future designs.<br>
+        3.	Future ME 382 students - Need examples of the design process and iterations.<br>
+        4.	University accreditors - Need the project to demonstrate alignment with program learning outcomes.<br></p>
+
+        <p style="text-indent: 2rem;">Based on the analysis of stakeholders and the engineering specs, the following house of quality was established for my section of the Rube Goldberg machine:</p>
+
+        <img src="HOQ.png" alt="House of Quality Image" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 1: House of Quality
+            </p>
+
+        <!-- Exisiting products-->
+
     </section>
 
-    <!-- Section 2 -->
     <section id="section2">
-        <h2>Phase 2: Generating and Analyzing an Original Solution</h2>
+        <h2 style="text-align: center"><strong>- Phase 2: Generating and Analyzing an Original Solution -</strong></h2>
 
-        <p><strong>Element D: Design for function (M3)</strong><br>
-        “The definitions of functions are accurate and use the prescribed taxonomy (or are more specific); the function structure has been iterated and is complete and correct, with all functional flows accurately represented and defined. The function structure includes multiple interior subfunctions, including at least one subfunction that converts an electrical energy input. No components are included anywhere in the function structure, enabling the student to design for function as opposed to being constrained to specific components to carry the function.”</p>
+        <!--
+        Element D: Design for function (Module 3)
+            “The definitions of functions are accurate and use the prescribed taxonomy (or are more specific); the function structure has been iterated and is complete and correct, with all functional flows accurately represented and defined. The function structure includes multiple interior subfunctions, including at least one subfunction that converts an electrical energy input. No components are included anywhere in the function structure, enabling the student to design for function as opposed to being constrained to specific components to carry the function.”
 
-        <p><strong>Element E: Design concept generation, analysis, and selection (M4, M5)</strong><br>
-        “The process for generating and comparing possible design solutions was comprehensive, iterative, and consistently defensible, making a viable and well-justified design highly likely; the design solution ultimately chosen was well-justified and demonstrated attention to all design requirements; the plan of action has considerable merit and would easily support repetition and testing for effectiveness by others.”</p>
+        Element E: Design concept generation, analysis, and selection (Module 4 and 5)
+            “The process for generating and comparing possible design solutions was comprehensive, iterative, and consistently defensible, making a viable and well-justified design highly likely; the design solution ultimately chosen was well-justified and demonstrated attention to all design requirements; the plan of action has considerable merit and would easily support repetition and testing for effectiveness by others.”
 
-        <p><strong>Element F: Application of STEM principles and practices through analysis (M5)</strong><br>
-        “The proposed solution is well-substantiated with STEM principles and practices applicable to all or nearly all design requirements and functional claims; there is substantial evidence that the application of those principles and practices by the student has been reviewed by two students in the class and an expert (course instructor, at time of homework assessment) and that those reviews provide confirmation (verification) or detail necessary to inform a corrective response.”</p>
+        Element F: Application of STEM principles and practices through analysis (Module 5)
+            “The proposed solution is well-substantiated with STEM principles and practices applicable to all or nearly all design requirements and functional claims; there is substantial evidence that the application of those principles and practices by the student has been reviewed by two students in the class and an expert (course instructor, at time of homework assessment) and that those reviews provide confirmation (verification) or detail necessary to inform a corrective response.”
+        -->
+
     </section>
 
-    <!-- Section 3 -->
     <section id="section3">
-        <h2>Phase 3: Detailed Design, Prototyping, and Simulation</h2>
+        <h2 style="text-align: center"><strong>- Phase 3: Detailed Design, Prototyping, and Simulation -</strong></h2>
 
-        <p><strong>Element G: Computational modeling of concept assembly (M6)</strong><br>
-        “The final concept iteration is clearly and fully explained and is constructed via CAD with enough detail to assure that objective data on all or nearly all design requirements could be determined; all attributes (sub-systems) of the unique solution that can be tested or modeled mathematically are addressed and a well-supported justification is provided for those that cannot be tested or modeled mathematically and thus require expert review.”</p>
+        <!--
+            Element G: Computational modeling of concept assembly (Module 6)
+            “The final concept iteration is clearly and fully explained and is constructed via CAD with enough detail to assure that objective data on all or nearly all design requirements could be determined; all attributes (sub-systems) of the unique solution that can be tested or modeled mathematically are addressed and a well-supported justification is provided for those that cannot be tested or modeled mathematically and thus require expert review.”
 
-        <p><strong>Element H: Full physics and engineering analysis (M7)</strong><br>
-        “Through the conduct of several tests for high priority requirements that are reasonable based on instructional contexts, or through physical or mathematical modeling, the student demonstrates considerable understanding of testing procedure, including the gathering and analysis of resultant data; the analysis of the effectiveness with which the design met stated goals includes a consistently detailed explanation and summary of the data from each portion of the testing procedure and from expert reviews, generously supported by pictures, graphs, charts and other visuals; the analysis includes an overall summary of the implications of all data for proceeding with the design and solving the problem.”</p>
+        Element H: Full physics and engineering analysis (Module 7)
+            “Through the conduct of several tests for high priority requirements that are reasonable based on instructional contexts, or through physical or mathematical modeling, the student demonstrates considerable understanding of testing procedure, including the gathering and analysis of resultant data; the analysis of the effectiveness with which the design met stated goals includes a consistently detailed explanation and summary of the data from each portion of the testing procedure and from expert reviews, generously supported by pictures, graphs, charts and other visuals; the analysis includes an overall summary of the implications of all data for proceeding with the design and solving the problem.”
 
-        <p><strong>Element I: Simulation/computational testing and data collection (M8 and M9)</strong><br>
-        “The Simulation/Computational Testing plan addresses all of the high priority design requirements by effectively describing the conduct (through physical and/or mathematical modeling) of those tests that are feasible based on the instructional context and providing for others a logical and well-developed explanation.”</p>
+        Element I: Simulation/computational testing and data collection (Module 8 and 9)
+            “The Simulation/Computational Testing plan addresses all of the high priority design requirements by effectively describing the conduct (through physical and/or mathematical modeling) of those tests that are feasible based on the instructional context and providing for others a logical and well-developed explanation.”
+        -->
+
     </section>
 
-    <!-- Section 4 -->
     <section id="section4">
-        <h2>Phase 4: Evaluation, Reflection, and Recommendations</h2>
+        <h2 style="text-align: center"><strong>- Phase 4: Evaluation, Reflection, and Recommendations -</strong></h2>
 
-        <p><strong>Element J: Documentation of external evaluation (M1–10)</strong><br>
-        “Documentation of project evaluation by a demonstrably qualified stakeholder and field expert is presented and is synthesized in a consistently specific, detailed, and thorough way; documentation is sufficient across three or more modules to yield meaningful analysis of that evaluation data; the synthesis of evaluations consistently addresses evaluators' specific questions, concerns, and opinions related to design requirements.”</p>
+        <!--
+        Element J: Documentation of external evaluation (Module 1 through 10)
+            “Documentation of project evaluation by a demonstrably qualified stakeholder and field expert is presented and is synthesized in a consistently specific, detailed, and thorough way; documentation is sufficient across three or more modules to yield meaningful analysis of that evaluation data; the synthesis of evaluations consistently addresses evaluators' specific questions, concerns, and opinions related to design requirements.”
 
-        <p><strong>Element K: Reflection on the design project (M10)</strong><br>
-        “The project designer provides a consistently clear, insightful, and comprehensive reflection on, and value judgment of, each major step in the project; the reflection includes a substantive summary of lessons learned that would be clearly useful to others attempting the same or similar project.”</p>
+        Element K: Reflection on the design project (Module 10)
+            “The project designer provides a consistently clear, insightful, and comprehensive reflection on, and value judgment of, each major step in the project; the reflection includes a substantive summary of lessons learned that would be clearly useful to others attempting the same or similar project.”
 
-        <p><strong>Element L: Presentation of designers’ recommendations (M10)</strong><br>
-        “The project designer includes consistently detailed and salient recommendations regarding the conduct of the same or similar project in the future; recommendations include caveats as warranted and specific ways the project could be improved with consistently detailed plans for the implementation of those improvements.”</p>
+        Element L: Presentation of designers recommendations (Module 10)
+            “The project designer includes consistently detailed and salient recommendations regarding the conduct of the same or similar project in the future; recommendations include caveats as warranted and specific ways the project could be improved with consistently detailed plans for the implementation of those improvements.”
+        -->
+
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Cameron Clarke - ME 382 Introduction to Design - clarcame@oregonstate.edu</p>
     </footer>
