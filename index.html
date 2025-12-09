@@ -335,14 +335,6 @@
     <section id="section2">
         <h2 style="text-align: center"><strong>- Phase 2: Generating and Analyzing an Original Solution -</strong></h2>
 
-        <!--
-        Element E: Design concept generation, analysis, and selection (Module 4 and 5) - Design concepts, pugh chart, final choice. initial math. 
-            “The process for generating and comparing possible design solutions was comprehensive, iterative, and consistently defensible, making a viable and well-justified design highly likely; the design solution ultimately chosen was well-justified and demonstrated attention to all design requirements; the plan of action has considerable merit and would easily support repetition and testing for effectiveness by others.”
-
-        Element F: Application of STEM principles and practices through analysis (Module 5) - classmate feedback.
-            “The proposed solution is well-substantiated with STEM principles and practices applicable to all or nearly all design requirements and functional claims; there is substantial evidence that the application of those principles and practices by the student has been reviewed by two students in the class and an expert (course instructor, at time of homework assessment) and that those reviews provide confirmation (verification) or detail necessary to inform a corrective response.”
-        -->
-
         <p style="text-indent: 2rem;">The first step in generating an original solution is to create a list of functions that our design could preform. These functions relate to the porential input and output functions of a typical Rube Goldberg machine.</p>
 
         <p><strong>Function list:</strong><br>
@@ -448,6 +440,40 @@
                 Figure 14: Pugh Chart
             </p>
 
+        <p style="text-indent: 2rem;">Now that I knew what design should be pursued, I began the detailed design phase to dial in how the design would function. Three detailed designs were drafted as seen below in figures 15 through 17.
+        </p>
+
+            <div class="carousel-container">
+                <div class="carousel-slide fade">
+                <img src="pictures/Speed sendor and eletric pump design.jpg" alt="Speed sensor and electric pump design Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Speed sensor and linear pump design.jpg" alt="Speed sensor and linear pump design Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Centrifugal force design.jpg" alt="Centrifugal force design Image">
+                </div>
+
+                <a class="carousel-prev">&#10094;</a>
+                <a class="carousel-next">&#10095;</a>
+                <div class="carousel-dots"></div>
+            </div>
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figures 15 though 17: Detailed Designs
+            </p>
+
+            <p style="text-indent: 2rem;">Each design was peer reviewed, and feedback was utilized to determine the final design. The analytical analysis of the centrifugal and linear pump designs resulted in unfavorable design characteristics therefore, the final design was chosen to be the speed sensor and electric pump configuration.</p>
+
+            <p style="text-indent: 2rem;">Below is some feedback utilized to determine the final design and help assist the inital revision of CAD models.</p>
+
+            <p style="text-indent: 2rem; font-style: italic; margin-bottom: 0;"></p>
+            "The Hall effect solution is an excellent integration with the output of my mechanism.  The flywheel is powered by a falling drink can, so sensing its rotational velocity is a good way to harness the output without overloading the system.  My only recommendation would be to spec more magnets on the flywheel to give your sensor a finer resolution.  Two magnets should be sufficient, but a higher angular resolution will allow for faster detection of the rotational velocity."<br> 
+            <div style="text-align: right; margin-top: 0;">- Brendan Shroyer (previous mechanism designer and fellow classmate)</div>
+            </p>
+
     </section>
 
     <section id="section3">
@@ -503,49 +529,53 @@
             collapseArrow.style.display = "flex";
         });
 
-        let slideIndex = 0;
-        let slides, dots;
+        class Carousel {
+    constructor(container) {
+        this.container = container;
+        this.slides = container.querySelectorAll(".carousel-slide");
+        this.dotsContainer = container.querySelector(".carousel-dots");
+        this.prevBtn = container.querySelector(".carousel-prev");
+        this.nextBtn = container.querySelector(".carousel-next");
+        this.slideIndex = 0;
 
-        function initCarousel() {
-            slides = document.getElementsByClassName("carousel-slide");
-            const dotContainer = document.querySelector(".carousel-dots");
+        // Create dots
+        this.slides.forEach((_, i) => {
+            const dot = document.createElement("span");
+            dot.classList.add("carousel-dot");
+            dot.addEventListener("click", () => this.showSlide(i));
+            this.dotsContainer.appendChild(dot);
+        });
 
-            for (let i = 0; i < slides.length; i++) {
-                const dot = document.createElement("span");
-                dot.classList.add("carousel-dot");
-                dot.addEventListener("click", () => showSlide(i));
-                dotContainer.appendChild(dot);
-            }
+        this.dots = this.dotsContainer.querySelectorAll(".carousel-dot");
 
-            dots = document.getElementsByClassName("carousel-dot");
-            showSlide(slideIndex);
+        this.prevBtn.onclick = () => this.plusSlides(-1);
+        this.nextBtn.onclick = () => this.plusSlides(1);
 
-            // Auto advance every 15 seconds
-            setInterval(() => plusSlides(1), 15000);
-        }
+        this.showSlide(this.slideIndex);
+    }
 
-        function plusSlides(n) {
-            showSlide(slideIndex += n);
-        }
+    plusSlides(n) {
+        this.showSlide(this.slideIndex + n);
+    }
 
-        function showSlide(n) {
-            if (n >= slides.length) slideIndex = 0;
-            if (n < 0) slideIndex = slides.length - 1;
+    showSlide(n) {
+        if (n >= this.slides.length) this.slideIndex = 0;
+        else if (n < 0) this.slideIndex = this.slides.length - 1;
+        else this.slideIndex = n;
 
-            for (let i = 0; i < slides.length; i++)
-                slides[i].style.display = "none";
+        this.slides.forEach(slide => slide.style.display = "none");
+        this.dots.forEach(dot => dot.classList.remove("active"));
 
-            for (let i = 0; i < dots.length; i++)
-                dots[i].classList.remove("active");
+        this.slides[this.slideIndex].style.display = "block";
+        this.dots[this.slideIndex].classList.add("active");
+    }
+}
 
-            slides[slideIndex].style.display = "block";
-            dots[slideIndex].classList.add("active");
-        }
-
-        document.querySelector(".carousel-prev").onclick = () => plusSlides(-1);
-        document.querySelector(".carousel-next").onclick = () => plusSlides(1);
-
-        window.onload = initCarousel;
+window.onload = () => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+        new Carousel(container); // initialize each carousel independently
+    });
+};
 
     </script>
 
