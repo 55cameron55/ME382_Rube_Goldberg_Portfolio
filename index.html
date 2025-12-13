@@ -8,7 +8,653 @@
     <style>
         html {
             scroll-behavior: smooth;
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clarke - Rube Goldberg Machine Project Portfolio</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
         }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(rgba(180, 180, 180, 0.6) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(180, 180, 180, 0.6) 2px, transparent 2px),
+                linear-gradient(rgba(200, 200, 200, 0.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.4) 1px, transparent 1px);
+            background-size:
+                200px 200px, 200px 200px,
+                40px 40px, 40px 40px;
+            background-color: #fffae0;
+        }
+
+        header {
+            background: linear-gradient(180deg, #f0f0f0, #bcbcbc);
+            color: #333;
+            text-align: center;
+            padding: 0.3rem 0;
+            line-height: 1.1;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color:#474747;
+        }
+
+        header h2 {
+            font-size: 1rem; 
+            margin: 0.1rem 0 0;
+            color:#474747;
+        }
+
+        nav {
+            background: #444;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.4rem 0.8rem;
+            border: 2px solid #cccccc;
+            border-radius: 20px;
+        }
+
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        section {
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            background: #fff;
+            border-radius: 20px;
+            border: 2px solid #cccccc;
+            line-height: 1.6;
+            scroll-margin-top: 180px;
+        }
+
+        footer {
+            background: #444;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section-image {
+            display: block;
+            max-width: 80%; 
+            border-radius: 8px;
+            border: 2px solid #000000;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            font-family: arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            text-align: center;
+            border: 2px solid #000000;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td, th {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #e0f8ff;
+        }
+
+        .arrow-btn {
+            position: fixed;
+            top: 0.4rem;
+            right: 0.4rem;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.92);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #000;
+            background: #fff;
+        }
+
+        .carousel-slide {
+            display: none;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .fade {
+            animation: fadeEffect 2s;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 0.5rem;
+            margin-top: -22px;
+            color: black;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 3px;
+            user-select: none;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .carousel-prev:hover, .carousel-next:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            padding: 10px 0;
+            background: rgba(255,255,255,0.8);
+        }
+
+        .carousel-dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .carousel-dot.active {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <button id="collapseArrow" class="arrow-btn">▲</button>
+    <button id="expandArrow" class="arrow-btn" style="display:none;">▼</button>
+
+    <div class="sticky-wrapper">
+        <header>
+            <h1><strong>Cameron Clarke ME 382 - Introduction to Design</strong></h1>
+            <h2>Rube Goldberg Machine Project Portfolio</h2>
+        </header>
+
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#section1">Phase 1 - Problem and Solution Requirements</a>
+            <a href="#section2">Phase 2 - Solution</a>
+            <a href="#section3">Phase 3 - Design, Prototyping, and Simulation</a>
+            <a href="#section4">Phase 4 - Evaluation, Reflection, and Recommendations</a>
+        </nav>
+    </div>
+
+    <section id="introduction">
+        <h2 style="text-align: center"><strong>- Project Introduction -</strong></h2>
+
+        <p style="text-indent: 2rem;">This portfolio documents the design process and development of a Rube Goldberg machine, a complex contraption that performs a simple task through a series of intricate steps. The project is structured into four main phases, each addressing specific aspects of the design process, from problem identification to final evaluation and reflection.</p>
+
+        <p style="text-indent: 2rem;">My Rube Goldberg section was designed to complete the task of converting rotational energy (from a previous phase fly wheel) into a stream of water. This portfolio aims to demonstrate the application of engineering design principles, creativity, and technical skills used throughout the project.</p>
+
+    </section>
+
+    <section id="section1">
+        <h2 style="text-align: center"><strong>- Phase 1: Presenting and Justifying the Problem and Solution Requirements -</strong></h2>
+
+        <p style="text-indent: 2rem;">The problem addressed by my section of the Rube Goldberg machine is the conversion of rotational energy from a previous phase flywheel into a stream of water.</p>
+
+        <p style="text-indent: 2rem;">Engineering specs were defined to set clear and measurable criteria for the design, ensuring the solution meets the functional requirements and stakeholder needs.</p>
+
+        <table>
+            <tr>
+                <th><strong>Spec No.</strong></th>  <th><strong>Engineering Spec</strong></th>  <th><strong>Driving Direction</strong></th> <th><strong>Min/ Max/ Target</strong></th></tr>
+
+            <tr>
+                <td>1</td>  <td>Number of custom parts</td> <td>Down</td> <td>0, 5, 0</td></tr>
+
+            <tr>
+                <td>2</td>  <td>Total number of hours to fabricate</td> <td>Down</td> <td>1, 30, 10</td></tr>
+
+            <tr>
+                <td>3</td>  <td>Percent of rubric items met</td> <td>Up</td> <td>80%, 100%, 100%</td></tr>
+
+            <tr>
+                <td>4</td>  <td>Input width in inches</td>  <td>Up</td> <td>1, 12, 8</td></tr>
+
+            <tr>
+                <td>5</td>  <td>Output width in inches</td> <td>Down</td>   <td>1, 5, 2</td></tr>
+
+             <tr>
+                <td>6</td>  <td>Total cost of materials in USD</td> <td>Down</td>   <td>10, 100, 20</td></tr>
+
+            <tr>
+                <td>7</td>  <td>Total number of pinch points</td>   <td>Down</td>   <td>0, 4, 0</td></tr>
+
+            <tr>
+                <td>8</td>  <td>Electrical current exposure in Amps</td>    <td>Down</td>   <td>0, 10, 5</td></tr>
+
+            <tr>
+                <td>9</td><td>Number of words in final report/webpage</td><td>Up</td><td>1,000, 10,000, 2,000</td></tr>
+
+            <tr>
+                <td>10</td><td>Number of pictures/figures in final report/webpage</td><td>Up</td><td>3, 20, 5</td></tr>
+
+            <tr>
+                <td>11</td><td>Number of design iterations documented</td><td>Up</td><td>1, 10, 3</td></tr>
+        </table>
+
+        <p style="text-align: center; font-weight: bold; margin-top: 0;">
+            Table 1: Engineering Specifications
+        </p>
+
+        <p style="text-indent: 2rem;">Stakeholders were identified using a three tier system including primary, secondary, and tertiary stakeholders. Primary stakeholders are those who are directly affected by the problem and solution, secondary stakeholders have an indirect interest, and tertiary stakeholders have a broader societal or environmental interest. Each stakeholder group was analyzed to understand their needs, concerns, and potential impact on the project. The following list illustrates the three types of stakeholders with representations from each category and their needs.</p>
+
+        <p><strong>Primary Stakeholders</strong><br>
+        1.  Myself / my team - Need to design a reliable, easy to fabricate, and functioning product.<br>
+        2.	Instructor - Needs the design and documentation to demonstrate comprehension of learning objectives. <br>
+        3.	Audience / classmates- Need the assembly to be visually engaging and clearly understandable.  <br></p>
+
+        <p><strong>Secondary Stakeholders</strong><br>
+        1.	Previous group in chain - Need to be able to receive a compatible input. <br>
+        2.	Following group in chain - Need to deliver a consistent compatible output.<br>
+        3.	Material suppliers - Readily available parts that are easy to source and affordable.<br>
+        4.	Safety staff - Need the project to minimize hazards.<br></p>
+
+        <p><strong>Tertiary Stakeholders</strong><br>
+        1.	Future employer - Need the project documentation and design portfolio to showcase technical competence and creativity.<br>
+        2.	Future Rube Goldberg machine designers - Need inspiration for future designs.<br>
+        3.	Future ME 382 students - Need examples of the design process and iterations.<br>
+        4.	University accreditors - Need the project to demonstrate alignment with program learning outcomes.<br></p>
+
+        <p style="text-indent: 2rem;">Based on the analysis of stakeholders and the engineering specs, the following house of quality was established for my section of the Rube Goldberg machine:</p>
+
+        <img src="pictures/HOQ.png" alt="House of Quality Image" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 1: House of Quality
+            </p>
+
+        <p style="text-indent: 2rem;">Exisiting Rube Goldberg mechanisms can be compared and scored against our existing house of quality requirements. The following mechanisms were evaluated:</p>
+
+        <p><strong>Competing Products:</strong><br>
+        A) Domino chain<br>
+        B) Ball and ramp<br>
+        C) Pulley system<br></p>
+
+        <p style="text-indent: 2rem;">These competing products (A though C) can be seen in the house of quality figure above. Each mechanism was graded on how it meets the requirements on a scale from 1 to 5. 1 meaning the mechanism does not meet the requirement at all, and 5 meaning the mechanism fully meets the requirement. It can bee seen that these standard products do not fufill our requirements, therefore we can proceed to design our own solution.</p>
+
+    </section>
+
+    <section id="section2">
+        <h2 style="text-align: center"><strong>- Phase 2: Generating and Analyzing an Original Solution -</strong></h2>
+
+        <p style="text-indent: 2rem;">The first step in generating an original solution is to create a list of functions that our design could perform. These functions relate to the potential input and output functions of a typical Rube Goldberg machine.</p>
+
+        <p><strong>Function list:</strong><br>
+        1.  Detect input.<br>
+        2.  Secure input.<br>
+        3.  Convert input kinetic energy into signal.<br>
+        4.  Convert electrical energy into mechanical rotational energy.<br>
+        5.  Convert electrical energy into heat.<br>
+        6.  Convert electrical energy into light energy.<br>
+        7.  Convert rotational energy into pneumatic gas pressure.<br>
+        8.  Convert rotational energy into translational force.<br>
+        9.  Transform light energy into signal energy.<br>
+        10. Transform pneumatic gas into linear transformation.<br></p>
+
+        <p style="text-indent: 2rem;">Once our list of functions has been defined, we can begin to develop a preliminary product sketch. For this initial design I chose to utilize an input of a linear force and an output of a ball rolling. Figure 2 below depicts the preliminary sketch that converts linear force to linear transformation using electrical mechanical energy, electric to rotational conversion, and pneumatic to linear transformations.</p>
+
+        <img src="pictures/PRELIMINARY_PRODUCT_SKETCH.jpg" alt="Preliminary Product Sketch" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 2: Preliminary Product Sketch
+            </p>
+
+        <p style="text-indent: 2rem;">The preliminary product sketch was converted into a function structure/decomposition diagram shown in figure 3 below. This functional decomposition ideates the specific subfunctions necessary for the product to perform using Stone's taxonomy. It also illustrates the function flow of materials, signals, and energy shown in blue, orange, and yellow respectively. The figure flows from left to right throughout the system.</p>
+
+        <img src="pictures/Functional_Decomposition.PNG" alt="Functional Decomposition Diagram" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 3: Functional Decomposition Diagram
+            </p>
+
+        <p style="text-indent: 2rem;">A morphology table was created to explore the design space and identify potential solutions. Three functions were chosen to be explored in the morphology table; convert rotational energy into translational force, transform pneumatic gas into linear transformation, and convert rotational energy into pneumatic gas pressure. Using the baseline transformations, nine designs could be created for comparison.</p>
+
+        <img src="pictures/Morphology.png" alt="Initial Morphology Table" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 4: Initial Morphology Table
+            </p>
+
+        <p style="text-indent: 2rem;">For my section of the Rube Goldberg machine three functions were chosen to be used as outputs. Three inputs were also supplied by the previous system. The following lists show the input and output options going forward, and nine combinations were ideated as shown in the figures to follow.</p>
+
+        <p><strong>Output options:</strong><br>
+            1. Turn on a 1-2 MOA (1-2" dot size at 100 yards) red laser with a wavelength of 630 - 700 nm. The laser will remain on for a minimum of five seconds. The beam will be oriented horizontally and mounted 2" off the ground ± 0.050".<br>
+            2. Dispense a stream of room temperature water (70°C) at a flow rate of 100mL/sec ± 20mL/sec from a nozzle located 24" ± 0.050" off the ground with a trajectory starting normal to the vertical face (horizontal output but will be parabolic due to gravity). The stream will remain on for a minimum of four seconds.<br>
+            3. Cut a 4mm diameter black nylon paracord. Construction is 550 lb tensile strength (type III, 550) with seven inner strands under tension (tied to whatever you want that can produce up to 550 lb of tension). Minimum tension of five pounds. The rope will be located 24" off the ground with a minimum of 3" clearance to the support structure. The rope will hang down.<br></p>
+
+        <p><strong>Input options from previous team:</strong><br> 
+            1. 1 kg mass traveling at 1m/s horizontally.<br>
+            2. 2 kg mass flywheel of diameter 25cm rotating at 2pi rad/s vertically.<br>
+            3. 10 g mass falling 0.5m vertically.<br></p>
+
+            <div class="carousel-container">
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept1.png" alt="Concept 1 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept2.png" alt="Concept 2 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept3.png" alt="Concept 3 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept4.png" alt="Concept 4 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept5.png" alt="Concept 5 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept6.png" alt="Concept 6 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept7.png" alt="Concept 7 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept8.png" alt="Concept 8 Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Concept9.png" alt="Concept 9 Image">
+                </div>
+
+                <a class="carousel-prev">&#10094;</a>
+                <a class="carousel-next">&#10095;</a>
+                <div class="carousel-dots"></div>
+            </div>
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figures 5 though 13: Concepts
+            </p>
+
+
+        <p style="text-indent: 2rem;">Each concept was evaluated using the following Pugh chart. From the chart two options were deemed acceptable, concept 4 - limit switch pump, and concept 6 - flywheel sprayer. The final design/function was chosen to be the flywheel sprayer.</p>
+
+        <img src="pictures/Pugh Chart.png" alt="Pugh Chart" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 14: Pugh Chart
+            </p>
+
+        <p style="text-indent: 2rem;">Now that I knew what design should be pursued, I began the detailed design phase to dial in how the design would function. Three detailed designs were drafted as seen below in figures 15 through 17.
+        </p>
+
+            <div class="carousel-container">
+                <div class="carousel-slide fade">
+                <img src="pictures/Speed sendor and eletric pump design.jpg" alt="Speed sensor and electric pump design Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Speed sensor and linear pump design.jpg" alt="Speed sensor and linear pump design Image">
+                </div>
+
+                <div class="carousel-slide fade">
+                <img src="pictures/Centrifugal force design.jpg" alt="Centrifugal force design Image">
+                </div>
+
+                <a class="carousel-prev">&#10094;</a>
+                <a class="carousel-next">&#10095;</a>
+                <div class="carousel-dots"></div>
+            </div>
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figures 15 though 17: Detailed Designs
+            </p>
+
+            <p style="text-indent: 2rem;">Each design was peer reviewed, and feedback was utilized to determine the final design. The analytical analysis of the centrifugal and linear pump designs resulted in unfavorable design characteristics; therefore, the final design was chosen to be the speed sensor and electric pump configuration.</p>
+
+            <p style="text-indent: 2rem;">The feedback below was used to determine the final design and to guide the initial CAD revisions.</p>
+
+            <p style="text-indent: 2rem; font-style: italic; margin-bottom: 0;"></p>
+            "The Hall effect solution is an excellent integration with the output of my mechanism.  The flywheel is powered by a falling drink can, so sensing its rotational velocity is a good way to harness the output without overloading the system.  My only recommendation would be to spec more magnets on the flywheel to give your sensor a finer resolution.  Two magnets should be sufficient, but a higher angular resolution will allow for faster detection of the rotational velocity."<br> 
+            <div style="text-align: right; margin-top: 0;">- Brendan Shroyer (previous mechanism designer and fellow classmate)</div>
+            </p>
+
+    </section>
+
+    <section id="section3">
+        <h2 style="text-align: center"><strong>- Phase 3: Detailed Design, Prototyping, and Simulation -</strong></h2>
+
+        <p style="text-indent: 2rem;">Three revisions of CAD models were made. These revisions incorporated feedback from peer reviews to refine the design parameters and ensure optimal functionality. I also updated the manufacturability of some components to incorporate 3D printing processes. The model is designed to be easy to fabricate and assemble while still ensuring proper operation. See the below figures for the final CAD package.</p>
+
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page1.png" alt="DWG sheet 1" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page2.png" alt="DWG sheet 2" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page3.png" alt="DWG sheet 3" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page4.png" alt="DWG sheet 4" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page5.png" alt="DWG sheet 5" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page6.png" alt="DWG sheet 6" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page7.png" alt="DWG sheet 7" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page8.png" alt="DWG sheet 8" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page9.png" alt="DWG sheet 9" class="section-image">
+        <img src="pictures/-100 FLYWHEEL DETECTING WATER DISPENSER ASSY REV C_Page10.png" alt="DWG sheet 10" class="section-image">
+
+            <p style="text-align: center; font-weight: bold; margin-top: 0;">
+                Figure 18 - 27: Final CAD Drawing Package
+            </p>
+    
+        <p style="text-indent: 2rem;">
+            The input for my section is a flywheel, which contains several magnets spaced equidistantly around its circumference.
+            At the top section of the mechanism, two Hall effect sensors (<a href="https://media.melexis.com/-/media/files/documents/datasheets/us5881-datasheet-melexis.pdf" target="_blank" rel="noopener">US5881 Non-latching Hall effect sensors<sup>[1]</sup></a>) are used to detect the passing magnets and measure the angular velocity of the flywheel.
+            The sensor signals are sent to a microcontroller (Arduino or other suitable microcontroller), which calculates the flywheel's velocity.
+            Once the velocity surpasses a set threshold, the microcontroller sends a signal to initiate the water pump.
+            Inside the lower section of the frame is a custom water tank, designed as a reservoir for the pump.
+            When actuated, the pump pulls water through the pipe system connected to the tank and dispenses a stream of water at the outlet nozzle, directing it toward the next mechanism in line.
+        </p>
+        <p style="font-size: 0.9em; margin-top: 0.5em;"><sup>[1]</sup> <a href="https://www.melexis.com/en/documents/documentation/datasheets/datasheet-us5881" target="_blank" rel="noopener">US5881 Hall effect sensor datasheet</a></p>
+
+        <p style="text-indent: 2rem;">
+            The final design was chosen based on its ability to meet the engineering specifications, ease of fabrication, and reliable performance.
+            The use of off-the-shelf components like the Hall effect sensors and water pump simplified the design and reduced costs.
+            The custom water tank was designed for easy manufacturing using laser cut and welded sheet metal, ensuring a good fit within the frame while maintaining sufficient capacity for the water stream output.
+        </p>
+
+        <p style="text-indent: 2rem;">
+            The materials used in the design were selected for their durability, cost-effectiveness, and ease of fabrication.
+            The frame is constructed from aluminum extrusions, providing a lightweight yet sturdy structure. The extrusion is T-slot extrusion, allowing for easy assembly and adjustments.(<a href="https://www.framingtech.com/shop/1-5x1-5-h-240inch-1-5-x-1-5-heavy-t-slot-profile-4-32-tslots-402655?category=16" target="_blank" rel="noopener">T-slot extrusion from Framing Tech<sup>[2]</sup></a>)
+            All hardware such as bolts, nuts, and washers are standard off-the-shelf components, ensuring ease of procurement and assembly.
+            The Hall effect sensor mount was designed to be 3D printed using PETG filament for durability and ease of manufacturing.
+        </p>
+        <p style="font-size: 0.9em; margin-top: 0.5em;"><sup>[2]</sup> <a href="https://www.framingtech.com/shop/1-5x1-5-h-240inch-1-5-x-1-5-heavy-t-slot-profile-4-32-tslots-402655?category=16" target="_blank" rel="noopener">T-slot extrusion from Framing Tech</a></p>
+
+        <p style="text-indent: 2rem;">
+            The design was finialized using input from peer reviews throughout the class using detailed discussion boards. 
+        </p>
+
+        <p style="text-indent: 2rem;">
+        Three computational analysis methods were used to validate the final design:
+        </p>
+
+        <ol>
+            <li>
+                <strong>Water Supply Analysis:</strong> The goal is to have enough water to supply the pump and nozzle for the required minimum time of 4 seconds. Assumptions include the density of water stays constant (along with temperature), the tank starts fully topped off with water, neglecting the water that may be already in the line and any negative area inside the tank that may reduce capacity (due to fittings and fasteners). Results equate to a total dispense time of 193.2 seconds. This is longer than the minimum requirement and is therefore acceptable. Because the results are much higher than needed, a more conservative analysis is not required.
+            </li>
+            <li>
+                <strong>Pump Mount Structural Analysis:</strong> The goal is to ensure the bending loads do not exceed material allowables for the pump mount. Assuming that the pump weight is relatively constant with or without water and minimal torque will be transferred from the pump to the support structure. The results show that the bending loads on the aluminum mounting plate are much, much lower than the material allowables, therefore the pump will be secure in its position.
+            </li>
+            <li>
+                <strong>Electrical Load Analysis:</strong> The goal is to ensure that the electrical load does not exceed 10 amps. Assumptions are that the pump will draw its maximum amount of current (8.7 amps), the Arduino will use 20 mA (0.020 A), and all other electronics are minimal and may be neglected. The results are simply added together to get 8.72 amps total. This is less than our maximum of 10 amps and is considered acceptable.
+            </li>
+        </ol>
+
+        <img src="pictures/Flow Analysis.png" alt="Flow Analysis" class="section-image" style="max-width: 600px;">
+
+        <p style="text-align: center; font-weight: bold; margin-top: 0;">
+            Figure 28: Flow Analysis Calculations
+        </p>
+
+        <img src="pictures/Bending Moment analysis.png" alt="Bending Moment Analysis" class="section-image" style="max-width: 600px;">
+
+        <p style="text-align: center; font-weight: bold; margin-top: 0;">
+            Figure 29: Bending Moment Analysis Calculations
+        </p>
+
+        <p style="text-indent: 2rem;">  
+            For simulations I would start with fluid flow analysis. This can be performed using a fluid simulation software. Multiple sections of the line should be tested to ensure the proper flow rates are achieved for the adequate duration. Each section before and after the pump should be tested independently. The final test would need to be physical. I would test the input speed sensors (Hall effect) to ensure they can read the proper angular velocity of the flywheel from the previous mechanism. This could be achieved by writing an Arduino program to display the average speed and checking with a calibrated speed sensor.
+        </p>
+
+    </section>
+
+    <section id="section4">
+        <h2 style="text-align: center"><strong>- Phase 4: Evaluation, Reflection, and Recommendations -</strong></h2>
+
+        <p style="text-indent: 2rem;">The final design was evaluated against the engineering specifications established in Phase 1. The design successfully met or exceeded most specifications, including the number of custom parts, fabrication time, and output requirements. The use of off-the-shelf components and a simple assembly process contributed to the overall success of the design.</p>
+
+        <p style="text-indent: 2rem;">Reflecting on the design process, several key lessons were learned. The importance of stakeholder analysis became evident, as understanding the needs and concerns of various stakeholders helped shape the design requirements. Additionally, the iterative nature of the design process highlighted the value of prototyping and testing, allowing for continuous improvement and refinement of the design.</p>
+
+        <p style="text-indent: 2rem;">For future projects, a few recommendations can be made. Incorporating more advanced simulation tools could enhance accuracy and reduce the need for physical prototyping. Engaging with stakeholders earlier in the design process could provide valuable insights and help identify potential issues before they arise. </p>
+
+        <img src="pictures/Full assembly view REV C.png" alt="Final Assembly View" class="section-image" style="max-width: 600px;">
+
+        <p style="text-align: center; font-weight: bold; margin-top: 0;">
+            Figure 30: Final Assebled CAD Render
+        </p>
+
+    <footer>
+        <p>Cameron Clarke - ME 382 Introduction to Design - clarcame@oregonstate.edu</p>
+    </footer>
+
+    <script>
+        const stickyWrapper = document.querySelector('.sticky-wrapper');
+        const collapseArrow = document.getElementById('collapseArrow');
+        const expandArrow = document.getElementById('expandArrow');
+
+        collapseArrow.addEventListener('click', () => {
+            stickyWrapper.style.display = "none";
+            collapseArrow.style.display = "none";
+            expandArrow.style.display = "flex";
+        });
+
+        expandArrow.addEventListener('click', () => {
+            stickyWrapper.style.display = "block";
+            expandArrow.style.display = "none";
+            collapseArrow.style.display = "flex";
+        });
+
+        class Carousel {
+    constructor(container) {
+        this.container = container;
+        this.slides = container.querySelectorAll(".carousel-slide");
+        this.dotsContainer = container.querySelector(".carousel-dots");
+        this.prevBtn = container.querySelector(".carousel-prev");
+        this.nextBtn = container.querySelector(".carousel-next");
+        this.slideIndex = 0;
+
+        this.slides.forEach((_, i) => {
+            const dot = document.createElement("span");
+            dot.classList.add("carousel-dot");
+            dot.addEventListener("click", () => this.showSlide(i));
+            this.dotsContainer.appendChild(dot);
+        });
+
+        this.dots = this.dotsContainer.querySelectorAll(".carousel-dot");
+
+        this.prevBtn.onclick = () => this.plusSlides(-1);
+        this.nextBtn.onclick = () => this.plusSlides(1);
+
+        this.showSlide(this.slideIndex);
+    }
+
+    plusSlides(n) {
+        this.showSlide(this.slideIndex + n);
+    }
+
+    showSlide(n) {
+        if (n >= this.slides.length) this.slideIndex = 0;
+        else if (n < 0) this.slideIndex = this.slides.length - 1;
+        else this.slideIndex = n;
+
+        this.slides.forEach(slide => slide.style.display = "none");
+        this.dots.forEach(dot => dot.classList.remove("active"));
+
+        this.slides[this.slideIndex].style.display = "block";
+        this.dots[this.slideIndex].classList.add("active");
+    }
+}
+
+window.onload = () => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+        new Carousel(container);
+    });
+};
+
+    </script>
+
+</body>
+</html>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -645,3 +1291,4 @@ window.onload = () => {
 
 </body>
 </html>
+
